@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f6f9;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            border: 1px solid #ddd;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background: #4CAF50;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Edit Student</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>ID:</label>
+    <input type="text" value="{{ student.id }}" readonly>
+
+    <label>Name:</label>
+    <input type="text" name="name" value="{{ student.name }}">
+
+    <label>Age:</label>
+    <input type="number" name="age" value="{{ student.age }}">
+
+    <label>Enrollment Date:</label>
+    <input type="date" name="enroll_date" value="{{ student.enroll_date }}">
+
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>
